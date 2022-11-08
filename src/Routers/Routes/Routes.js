@@ -7,6 +7,7 @@ import Register from "../../Pages/Register/Register";
 import Review from "../../Pages/Review/Review";
 import AddService from "../../Pages/Services/AddService/AddService";
 import Service from "../../Pages/Services/Service";
+import ReviewAdd from "../../Pages/Services/ServiceDetails/ReviewAdd/ReviewAdd";
 import ServiceDetails from "../../Pages/Services/ServiceDetails/ServiceDetails";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -51,6 +52,14 @@ export const Routers = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/review",
+        element: <Review />,
+      },
+      {
+        path: "reviewAdd",
+        element: <ReviewAdd />,
       },
     ],
   },

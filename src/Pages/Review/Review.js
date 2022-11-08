@@ -8,8 +8,10 @@ const Review = () => {
       .then((data) => setReview(data));
   }, []);
   return (
-    <div>
-      <h1>Reviews Numbers : {review.length}</h1>
+    <div className="container mx-auto border-t py-16">
+      <h1 className="text-5xl text-center">
+        Reviews Numbers : {review.length}
+      </h1>
     </div>
   );
 };

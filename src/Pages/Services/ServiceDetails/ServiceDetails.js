@@ -13,23 +13,23 @@ const ServiceDetails = () => {
       <section className="container mx-auto border-t">
         <aside className="">
           <section>
-            <div class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
-              <div class="grid grid-cols-1  lg:grid-cols-2">
-                <div class="relative z-10 lg:py-16 ">
-                  <div class="relative h-64 sm:h-80 lg:h-full">
+            <div className="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-1  lg:grid-cols-2">
+                <div className="relative z-10 lg:py-16 ">
+                  <div className="relative h-64 sm:h-80 lg:h-full">
                     <img
                       alt="House"
                       src={img}
-                      class="absolute inset-0 h-full w-full object-cover rounded-lg"
+                      className="absolute inset-0 h-full w-full object-cover rounded-lg"
                     />
                   </div>
                 </div>
 
-                <div class="relative flex items-center bg-gray-100 rounded-r-lg">
-                  <span class="hidden lg:absolute lg:inset-y-0 lg:-left-16 lg:block lg:w-16 lg:bg-gray-100"></span>
+                <div className="relative flex items-center bg-gray-100 rounded-r-lg">
+                  <span className="hidden lg:absolute lg:inset-y-0 lg:-left-16 lg:block lg:w-16 lg:bg-gray-100"></span>
 
-                  <div class="p-8 sm:p-16 lg:p-24">
-                    <h2 class="text-2xl text-secondary font-bold sm:text-3xl">
+                  <div className="p-8 sm:p-16 lg:p-24">
+                    <h2 className="text-2xl text-secondary font-bold sm:text-3xl">
                       {title}
                     </h2>
 
@@ -64,11 +64,15 @@ const ServiceDetails = () => {
                       </div>
                     </div>
 
-                    <p class="mt-4 text-gray-600">{describe.slice(0, 463)}</p>
-                    <p class="mt-4 text-gray-600">{describe.slice(463, 967)}</p>
-                    <p class="mt-4 text-gray-600">{describe.slice(967)}</p>
+                    <p className="mt-4 text-gray-600">
+                      {describe.slice(0, 463)}
+                    </p>
+                    <p className="mt-4 text-gray-600">
+                      {describe.slice(463, 967)}
+                    </p>
+                    <p className="mt-4 text-gray-600">{describe.slice(967)}</p>
 
-                    <Link class="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500">
+                    <Link className="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500">
                       Purchase Now
                     </Link>
                   </div>
@@ -87,7 +91,16 @@ const ServiceDetails = () => {
             </h1>
           )}
           {review.length === 0 && user?.displayName && (
-            <h1 className="text-center text-3xl">No reviews were added</h1>
+            <div className="flex items-center space-x-5 justify-center">
+              <h1 className="text-center text-3xl">No reviews were added</h1>
+              <Link className="group relative inline-block overflow-hidden border border-indigo-600 px-8 py-3 focus:outline-none focus:ring">
+                <span class="absolute inset-y-0 left-0 w-[2px] bg-indigo-600 transition-all group-hover:w-full group-active:bg-indigo-500"></span>
+
+                <span class="relative text-sm font-medium text-indigo-600 transition-colors group-hover:text-white">
+                  Add Review
+                </span>
+              </Link>
+            </div>
           )}
           {/* <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
             <div className="flex justify-between p-4">

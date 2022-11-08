@@ -1,21 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 
 const AddService = () => {
+  const [service, setService] = useState();
+  const handleServiceAdd = (event) => {
+    event.preventDefault();
+
+    fetch("http://localhost:5000/service", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(service),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          alert("User Added Success");
+          event.target.reset();
+        }
+      });
+  };
+  const handleInputValue = (event) => {
+    const field = event.target.name;
+    const value = event.target.value;
+    const newUser = { ...service };
+    newUser[field] = value;
+    setService(newUser);
+  };
   return (
     <div className="container mx-auto border-t mb-16">
       <h1 className="py-12 text-5xl font-Vibes text-center tracking-widest text-secondary">
         Create Your Favorite Service
       </h1>
 
-      <div class="block p-6 rounded-lg shadow-lg bg-white max-w-md mx-auto mt-4">
-        <form>
-          <div class="form-group mb-6">
+      <div className="block p-6 rounded-lg shadow-lg bg-white max-w-md mx-auto mt-4">
+        <h1 className="text-center text-xl mb-4 text-black">
+          Service Info Provider Form
+        </h1>
+        <form onSubmit={handleServiceAdd}>
+          <div className="form-group mb-6">
             <input
+              onChange={handleInputValue}
               type="text"
-              class="form-control block
+              className="form-control block
         w-full
         px-3
-        py-1.5
+        py-3
         text-base
         font-normal
         text-gray-700
@@ -31,13 +61,14 @@ const AddService = () => {
               name="title"
             />
           </div>
-          <div class="form-group mb-6">
+          <div className="form-group mb-6">
             <input
+              onChange={handleInputValue}
               type="text"
-              class="form-control block
+              className="form-control block
         w-full
         px-3
-        py-1.5
+        py-3
         text-base
         font-normal
         text-gray-700
@@ -53,13 +84,14 @@ const AddService = () => {
               name="img"
             />
           </div>
-          <div class="form-group mb-6">
+          <div className="form-group mb-6">
             <input
+              onChange={handleInputValue}
               type="text"
-              class="form-control block
+              className="form-control block
         w-full
         px-3
-        py-1.5
+        py-3
         text-base
         font-normal
         text-gray-700
@@ -75,13 +107,14 @@ const AddService = () => {
               name="price"
             />
           </div>
-          <div class="form-group mb-6">
+          <div className="form-group mb-6">
             <input
+              onChange={handleInputValue}
               type="text"
-              class="form-control block
+              className="form-control block
         w-full
         px-3
-        py-1.5
+        py-3
         text-base
         font-normal
         text-gray-700
@@ -97,13 +130,14 @@ const AddService = () => {
               name="rating"
             />
           </div>
-          <div class="form-group mb-6">
+          <div className="form-group mb-6">
             <input
+              onChange={handleInputValue}
               type="text"
-              class="form-control block
+              className="form-control block
         w-full
         px-3
-        py-1.5
+        py-3
         text-base
         font-normal
         text-gray-700
@@ -119,14 +153,15 @@ const AddService = () => {
               name="members"
             />
           </div>
-          <div class="form-group mb-6">
+          <div className="form-group mb-6">
             <textarea
-              class="
+              onChange={handleInputValue}
+              className="
         form-control
         block
         w-full
         px-3
-        py-1.5
+        py-3
         text-base
         font-normal
         text-gray-700
@@ -144,30 +179,17 @@ const AddService = () => {
               name="describe"
             ></textarea>
           </div>
-          <div class="form-group form-check text-center mb-6">
-            <input
-              type="checkbox"
-              class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain mr-2 cursor-pointer"
-              id="exampleCheck87"
-              checked
-            />
-            <label
-              class="form-check-label inline-block text-gray-800"
-              for="exampleCheck87"
-            >
-              Send me a copy of this message
-            </label>
-          </div>
-          <button
+          <div className="form-group form-check text-center mb-6"></div>
+          <input
             type="submit"
-            class="
+            className="
       w-full
       px-6
-      py-2.5
+      py-4
       bg-blue-600
       text-white
       font-medium
-      text-xs
+      text-[17px]
       leading-tight
       uppercase
       rounded
@@ -178,9 +200,8 @@ const AddService = () => {
       transition
       duration-150
       ease-in-out"
-          >
-            Send
-          </button>
+            value="Submit Service"
+          />
         </form>
       </div>
     </div>
