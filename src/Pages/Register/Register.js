@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/ServiceContext";
 import { FaGoogle } from "react-icons/fa";
 import { GoogleAuthProvider } from "firebase/auth";
@@ -205,13 +205,13 @@ const Register = () => {
                   />
 
                   <p className="text-sm text-white font-semibold mt-2 pt-1 mb-0">
-                    Don't have an account? {""}
-                    <a
-                      href="#!"
+                    You have already account? {""}
+                    <Link
+                      to="/login"
                       className="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
                     >
-                      Register
-                    </a>
+                      Login
+                    </Link>
                   </p>
                 </div>
               </form>

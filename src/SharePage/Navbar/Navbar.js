@@ -1,9 +1,19 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/ServiceContext";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+  console.log(user);
+
+  const handleLogOuts = () => {
+    logOut()
+      .then(() => {
+        navigate("/");
+      })
+      .then((error) => console.error(error));
+  };
   return (
     <nav className="border-gray-200 sm:px-4 p-7">
       <div className="container flex flex-wrap justify-between items-center mx-auto p-1">
@@ -39,7 +49,7 @@ const Navbar = () => {
           <ul className="flex flex-col mt-4 rounded-lg border border-gray-100 md:flex-row space-x-8 md:mt-0 md:text-sm  md:font-medium md:border-0  ">
             <Link
               to="/"
-              className="block  text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+              className="block  text-xl text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
               aria-current="page"
             >
               Home
@@ -47,49 +57,57 @@ const Navbar = () => {
 
             <Link
               to="/service"
-              className="block text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+              className="block  text-xl text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
             >
               Services
             </Link>
 
             <Link
               to="/blogs"
-              className="block  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+              className="block  text-xl text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
             >
               Blogs
             </Link>
 
-            <Link
-              to="/review"
-              className="block  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >
-              My Review
-            </Link>
+            {user?.displayName && (
+              <>
+                <Link
+                  to="/review"
+                  className="block  text-xl  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >
+                  My Review
+                </Link>
+                <Link
+                  to="/addService"
+                  className="block  text-xl  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >
+                  Service Add
+                </Link>
+                <Link
+                  onClick={handleLogOuts}
+                  className="block  text-xl  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >
+                  Log Out
+                </Link>
+              </>
+            )}
+            {!user?.displayName && (
+              <>
+                <Link
+                  to="/login"
+                  className="block  text-xl  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >
+                  Log In
+                </Link>
 
-            <Link
-              to="/service/:id"
-              className="block  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >
-              Service Add
-            </Link>
-
-            <Link className="block  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-              Log Out
-            </Link>
-
-            <Link
-              to="/login"
-              className="block  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >
-              Log In
-            </Link>
-
-            <Link
-              to="/register"
-              className="block  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >
-              Register
-            </Link>
+                <Link
+                  to="/register"
+                  className="block  text-xl  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >
+                  Register
+                </Link>
+              </>
+            )}
           </ul>
         </div>
       </div>

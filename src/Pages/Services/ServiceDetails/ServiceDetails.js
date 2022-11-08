@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../../Context/ServiceContext";
 
 const ServiceDetails = () => {
   const cardData = useLoaderData();
   const { img, title, describe, rating, price, duration, _id, members } =
     cardData[0];
+
+  const { user, review } = useContext(AuthContext);
   return (
     <div>
       <section className="container mx-auto border-t">
@@ -74,8 +77,18 @@ const ServiceDetails = () => {
             </div>
           </section>
         </aside>
-        <aside className=" bg-white py-28 mb-16">
-          <h1 className="text-center text-5xl">Please login to add a review</h1>
+        <aside className=" bg-white py-28 mb-16 rounded-lg">
+          {!user?.displayName && (
+            <h1 className="text-center text-3xl">
+              Please login to add a review{" "}
+              <Link className="text-blue-500" to="/login">
+                Login
+              </Link>{" "}
+            </h1>
+          )}
+          {review.length === 0 && user?.displayName && (
+            <h1 className="text-center text-3xl">No reviews were added</h1>
+          )}
           {/* <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
             <div className="flex justify-between p-4">
               <div className="flex space-x-4">
