@@ -34,7 +34,7 @@ const Login = () => {
                   <div className="form-group form-check">
                     <label
                       className="form-check-label inline-block text-gray-800"
-                      for="exampleCheck2"
+                      htmlFor="exampleCheck2"
                     >
                       Remember me
                     </label>

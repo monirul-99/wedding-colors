@@ -74,80 +74,47 @@ const ServiceDetails = () => {
             </div>
           </section>
         </aside>
-        <aside className="h-screen">
-          <h1 className="text-center">Please login to add a review</h1>
-          <div class="w-1/3">
-            <blockquote class="flex h-full flex-col justify-between bg-white p-12">
-              <div>
-                <div class="flex gap-0.5 text-white">
-                  <span class="bg-green-500 p-0.5">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  </span>
-                  <span class="bg-green-500 p-0.5">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  </span>
-                  <span class="bg-green-500 p-0.5">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  </span>
-                  <span class="bg-green-500 p-0.5">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  </span>
-                  <span class="bg-green-500 p-0.5">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  </span>
+        <aside className=" bg-white py-28 mb-16">
+          <h1 className="text-center text-5xl">Please login to add a review</h1>
+          {/* <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
+            <div className="flex justify-between p-4">
+              <div className="flex space-x-4">
+                <div>
+                  <img
+                    src="https://source.unsplash.com/100x100/?portrait"
+                    alt=""
+                    className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
+                  />
                 </div>
-
-                <div class="mt-4">
-                  <h3 class="text-2xl font-bold text-pink-600 sm:text-3xl">
-                    Lorem ipsum dolor sit amet.
-                  </h3>
-
-                  <p class="mt-4 text-lg text-gray-600">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Ipsam cumque recusandae dolorum porro, quasi sunt
-                    necessitatibus dolorem ab laudantium vel.
-                  </p>
+                <div>
+                  <h4 className="font-bold">Leroy Jenkins</h4>
+                  <span className="text-xs dark:text-gray-400">2 days ago</span>
                 </div>
               </div>
-
-              <footer class="mt-8 text-gray-500">- Eddie Murphy</footer>
-            </blockquote>
-          </div>
+              <div className="flex items-center space-x-2 dark:text-yellow-500">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                  className="w-5 h-5 fill-current"
+                >
+                  <path d="M494,198.671a40.536,40.536,0,0,0-32.174-27.592L345.917,152.242,292.185,47.828a40.7,40.7,0,0,0-72.37,0L166.083,152.242,50.176,171.079a40.7,40.7,0,0,0-22.364,68.827l82.7,83.368-17.9,116.055a40.672,40.672,0,0,0,58.548,42.538L256,428.977l104.843,52.89a40.69,40.69,0,0,0,58.548-42.538l-17.9-116.055,82.7-83.368A40.538,40.538,0,0,0,494,198.671Zm-32.53,18.7L367.4,312.2l20.364,132.01a8.671,8.671,0,0,1-12.509,9.088L256,393.136,136.744,453.3a8.671,8.671,0,0,1-12.509-9.088L144.6,312.2,50.531,217.37a8.7,8.7,0,0,1,4.778-14.706L187.15,181.238,248.269,62.471a8.694,8.694,0,0,1,15.462,0L324.85,181.238l131.841,21.426A8.7,8.7,0,0,1,461.469,217.37Z"></path>
+                </svg>
+                <span className="text-xl font-bold">4.5</span>
+              </div>
+            </div>
+            <div className="p-4 space-y-2 text-sm dark:text-gray-400">
+              <p>
+                Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu
+                dictum lectus consequat vitae. Etiam ut dolor id justo fringilla
+                finibus.
+              </p>
+              <p>
+                Donec eget ultricies diam, eu molestie arcu. Etiam nec lacus eu
+                mauris cursus venenatis. Maecenas gravida urna vitae accumsan
+                feugiat. Vestibulum commodo, ante sit urna purus rutrum sem.
+              </p>
+            </div>
+          </div> */}
         </aside>
       </section>
     </div>
