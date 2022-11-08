@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddService = () => {
   const [service, setService] = useState();
@@ -15,7 +17,10 @@ const AddService = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          alert("User Added Success");
+          toast.success("Service Added Successfully!", {
+            position: "top-right",
+            autoClose: 500,
+          });
           event.target.reset();
         }
       });
@@ -37,10 +42,9 @@ const AddService = () => {
         <h1 className="text-center text-xl mb-4 text-black">
           Service Info Provider Form
         </h1>
-        <form onSubmit={handleServiceAdd}>
+        <form>
           <div className="form-group mb-6">
             <input
-              onChange={handleInputValue}
               type="text"
               className="form-control block
         w-full

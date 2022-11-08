@@ -13,7 +13,7 @@ const ServiceCard = ({ data }) => {
           <div className="p-6">
             <h5 className="text-gray-900 text-xl font-medium mb-2">{title}</h5>
             <p title={describe} className="text-gray-700 text-base mb-4">
-              {describe.length > 100 ? describe.slice(0, 100) : describe} . . .
+              {describe?.length > 100 ? describe.slice(0, 100) : describe} . . .
             </p>
             <div className="flex justify-between items-center pb-7 text-gray-900">
               <p>

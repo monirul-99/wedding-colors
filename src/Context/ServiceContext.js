@@ -15,7 +15,7 @@ const ServiceContext = ({ children }) => {
   const [user, setUser] = useState(null);
   const [review, setReview] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log(review);
+
   useEffect(() => {
     fetch(`http://localhost:5000/review`)
       .then((res) => res.json())
@@ -62,6 +62,7 @@ const ServiceContext = ({ children }) => {
     signInBtn,
     review,
     loading,
+    setReview,
   };
   return (
     <div>

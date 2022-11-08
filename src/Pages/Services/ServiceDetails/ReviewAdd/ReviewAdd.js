@@ -1,12 +1,45 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../../../../Context/ServiceContext";
 
 const ReviewAdd = () => {
+  const { user } = useContext(AuthContext);
+
+  const [reviews, setReviews] = useState([]);
+
+  const handleNewUsers = (event) => {
+    event.preventDefault();
+
+    fetch("http://localhost:5000/review", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(reviews),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          alert("User Added Success");
+          event.target.reset();
+        }
+      });
+  };
+
+  const handleBlur = (event) => {
+    event.preventDefault();
+    const fieldName = event.target.name;
+    const fieldValue = event.target.value;
+    const newMembers = { ...reviews };
+    newMembers[fieldName] = fieldValue;
+    console.log(newMembers);
+  };
   return (
-    <div className="h-screen -mb-80 ">
-      <div className="block p-6 rounded-lg shadow-lg bg-white max-w-md mx-auto mt-4 mb-12 ">
+    <div className="h-screen -mb-80 border-t container mx-auto">
+      <div className="block p-6 rounded-lg shadow-lg bg-white max-w-md mx-auto mt-72">
         <form className="">
           <div className="form-group">
             <textarea
+              onBlur={handleBlur}
               className="
         form-control
         block
@@ -31,7 +64,7 @@ const ReviewAdd = () => {
             ></textarea>
           </div>
           <div className="form-group form-check text-center mb-6"></div>
-          <button
+          <input
             type="submit"
             className="
       w-full
@@ -51,9 +84,8 @@ const ReviewAdd = () => {
       transition
       duration-150
       ease-in-out"
-          >
-            Submit
-          </button>
+            value="Submit"
+          />
         </form>
       </div>
     </div>

@@ -4,6 +4,7 @@ import ServiceCard from "./ServiceCards/ServiceCard";
 
 const Service = () => {
   const allServiceData = useLoaderData();
+  console.log(allServiceData);
   return (
     <div className="container mx-auto border-t">
       <h1 className="font-Vibes  tracking-widest text-center text-5xl p-5 text-white mt-12">
