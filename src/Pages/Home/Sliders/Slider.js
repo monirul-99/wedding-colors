@@ -40,15 +40,17 @@ const Slider = () => {
             of the bride and groom.
           </p>
           <div className="flex items-center space-x-5">
-            <Link to="/service">
-              <button className="btn btn-info rounded-sm text-white duration-1000 ease-in-out px-5 hover:rounded-full">
-                Service
-              </button>
+            <Link
+              to="/service"
+              className="inline-block rounded bg-indigo-600 px-8 py-3 text-sm font-medium text-white transition hover:rotate-2 hover:scale-110 focus:outline-none focus:ring active:bg-indigo-500"
+            >
+              Service
             </Link>
-            <Link to="/blogs">
-              <button className="btn btn-outline btn-info hover:text-white">
-                Learn More
-              </button>
+            <Link
+              to="/blogs"
+              class="inline-block rounded border border-current px-8 py-3 text-sm font-medium text-indigo-600 transition hover:rotate-2 hover:scale-110 focus:outline-none focus:ring active:text-indigo-500"
+            >
+              Learn More
             </Link>
           </div>
         </div>

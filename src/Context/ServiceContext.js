@@ -14,6 +14,7 @@ const auth = getAuth(app);
 const ServiceContext = ({ children }) => {
   const [user, setUser] = useState(null);
   const [review, setReview] = useState([]);
+  const [loading, setLoading] = useState(true);
   console.log(review);
   useEffect(() => {
     fetch(`http://localhost:5000/review`)
@@ -47,7 +48,7 @@ const ServiceContext = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log(user?.displayName);
+      setLoading(false);
     });
     return () => unSubscribe();
   }, [user]);
@@ -60,6 +61,7 @@ const ServiceContext = ({ children }) => {
     logOut,
     signInBtn,
     review,
+    loading,
   };
   return (
     <div>
