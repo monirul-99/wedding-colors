@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const ServiceCard = ({ data }) => {
   const { img, title, price, rating, describe, _id } = data;
@@ -8,7 +10,11 @@ const ServiceCard = ({ data }) => {
       <div className=" flex justify-center">
         <div className="rounded-lg shadow-lg bg-white max-w-sm">
           <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
-            <img className=" rounded-t-lg" src={img} alt="" />
+            <PhotoProvider>
+              <PhotoView src={img}>
+                <img src={img} alt="" />
+              </PhotoView>
+            </PhotoProvider>
           </a>
           <div className="p-6">
             <h5 className="text-gray-900 text-xl font-medium mb-2">{title}</h5>

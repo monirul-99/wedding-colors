@@ -5,16 +5,16 @@ import ReviewCard from "./ReviewAdd/ReviewCard/ReviewCard";
 
 const ServiceDetails = () => {
   const cardData = useLoaderData();
-  const { user, review, setReview } = useContext(AuthContext);
+  const { user, review } = useContext(AuthContext);
   const [userReview, setUserReview] = useState([]);
 
   const { img, title, describe, rating, price, duration, _id, members } =
     cardData[0];
   useEffect(() => {
-    fetch(`http://localhost:5000/reviewEmail?email=${user?.email}`)
+    fetch(`http://localhost:5000/reviewId?email=${_id}`)
       .then((res) => res.json())
       .then((data) => setUserReview(data));
-  }, [user?.email]);
+  }, [_id]);
 
   const handleAddReview = (event) => {
     event.preventDefault();

@@ -1,4 +1,5 @@
 import React from "react";
+import { PhotoProvider, PhotoView } from "react-photo-view";
 import { Link } from "react-router-dom";
 
 const Cards = ({ card }) => {
@@ -8,7 +9,12 @@ const Cards = ({ card }) => {
       <div className="relative flex justify-center">
         <div className="rounded-lg shadow-lg bg-white max-w-sm">
           <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
-            <img className=" rounded-t-lg" src={img} alt="" />
+            {/* <img className=" rounded-t-lg" src={img} alt="" /> */}
+            <PhotoProvider>
+              <PhotoView src={img}>
+                <img src={img} alt="" />
+              </PhotoView>
+            </PhotoProvider>
             <span className="absolute top-3 right-1 whitespace-nowrap rounded-md bg-amber-400 px-2.5 py-0.5 text-sm text-gray-900">
               Hit Pack
             </span>

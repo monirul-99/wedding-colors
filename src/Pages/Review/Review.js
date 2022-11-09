@@ -11,9 +11,9 @@ const Review = () => {
       .then((data) => setReview(data));
   }, [user?.email]);
   return (
-    <div className="container mx-auto border-t py-16">
-      <h1 className="text-5xl text-center font-Vibes font-extralight text-white tracking-widest">
-        Our Review For Service Package : {review.length}
+    <div className="container mx-auto border-t  border-spacing-5 py-16">
+      <h1 className="text-5xl text-center font-Vibes tracking-widest  text-white">
+        Our Special Review : {review.length}
       </h1>
 
       <div className="grid grid-cols-3 gap-12 mt-12">
