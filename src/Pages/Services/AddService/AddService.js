@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import UseTitle from "../../../CustomHooks/UseTitle/UseTitle";
 
 const AddService = () => {
+  UseTitle("Add Service");
   const [service, setService] = useState();
   const handleServiceAdd = (event) => {
     event.preventDefault();

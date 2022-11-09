@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { json, Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../Context/ServiceContext";
+import UseTitle from "../../../CustomHooks/UseTitle/UseTitle";
 import ReviewCard from "./ReviewAdd/ReviewCard/ReviewCard";
 
 const ServiceDetails = () => {
+  UseTitle("Service Details");
   const cardData = useLoaderData();
   const { user, review } = useContext(AuthContext);
   const [userReview, setUserReview] = useState([]);

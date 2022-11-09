@@ -3,8 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/ServiceContext";
 import { FaGoogle } from "react-icons/fa";
 import { GoogleAuthProvider } from "firebase/auth";
+import UseTitle from "../../CustomHooks/UseTitle/UseTitle";
 
 const Register = () => {
+  UseTitle("Register");
   const [error, setError] = useState();
   const {
     registerWithEmailPassword,
