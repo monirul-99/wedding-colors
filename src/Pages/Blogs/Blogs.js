@@ -30,17 +30,17 @@ const Blogs = () => {
           </summary>
 
           <p className="mt-4 leading-relaxed text-gray-700">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
-            veritatis molestias culpa in, recusandae laboriosam neque aliquid
-            libero nesciunt voluptate dicta quo officiis explicabo consequuntur
-            distinctio corporis earum similique!
+            SQL is the programming language used to interface with relational
+            databases. (Relational databases model data as records in rows and
+            tables with logical links between them). NoSQL is a class of DBMs
+            that are non-relational and generally do not use SQL.
           </p>
         </details>
 
         <details className="group border-l-4 border-green-500 bg-gray-50 p-6">
           <summary className="flex cursor-pointer items-center justify-between">
             <h2 className="text-lg font-medium text-gray-900">
-              What is JWT, and how does it work??
+              What is JWT, and how does it work?
             </h2>
 
             <span className="ml-1.5 flex-shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
@@ -60,17 +60,24 @@ const Blogs = () => {
           </summary>
 
           <p className="mt-4 leading-relaxed text-gray-700">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
-            veritatis molestias culpa in, recusandae laboriosam neque aliquid
-            libero nesciunt voluptate dicta quo officiis explicabo consequuntur
-            distinctio corporis earum similique!
+            JSON Web Token is a proposed Internet standard for creating data
+            with optional signature and/or optional encryption whose payload
+            holds JSON that asserts some number of claims. The tokens are signed
+            either using a private secret or a public/private key.
+          </p>
+          <p className="mt-4 leading-relaxed text-gray-700">
+            Authentication server verifies the credentials and issues a jwt
+            signed using either a secret salt or a private key. User's Client
+            uses the JWT to access protected resources by passing the JWT in
+            HTTP Authorization header. Resource server then verifies the
+            authenticity of the token using the secret salt/ public key.
           </p>
         </details>
 
         <details className="group border-l-4 border-green-500 bg-gray-50 p-6">
           <summary className="flex cursor-pointer items-center justify-between">
             <h2 className="text-lg font-medium text-gray-900">
-              What is the difference between javascript and NodeJS??
+              What is the difference between javascript and NodeJS?
             </h2>
 
             <span className="ml-1.5 flex-shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
@@ -90,10 +97,10 @@ const Blogs = () => {
           </summary>
 
           <p className="mt-4 leading-relaxed text-gray-700">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
-            veritatis molestias culpa in, recusandae laboriosam neque aliquid
-            libero nesciunt voluptate dicta quo officiis explicabo consequuntur
-            distinctio corporis earum similique!
+            JavaScript is a simple programming language that can be used with
+            any browser that has the JavaScript Engine installed. Node. js, on
+            the other hand, is an interpreter or execution environment for the
+            JavaScript programming language.
           </p>
         </details>
 
@@ -120,10 +127,11 @@ const Blogs = () => {
           </summary>
 
           <p className="mt-4 leading-relaxed text-gray-700">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
-            veritatis molestias culpa in, recusandae laboriosam neque aliquid
-            libero nesciunt voluptate dicta quo officiis explicabo consequuntur
-            distinctio corporis earum similique!
+            How NodeJS handle multiple client requests? NodeJS receives multiple
+            client requests and places them into EventQueue. NodeJS is built
+            with the concept of event-driven architecture. NodeJS has its own
+            EventLoop which is an infinite loop that receives requests and
+            processes them.
           </p>
         </details>
       </div>
