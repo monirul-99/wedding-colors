@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { FaEdit, FaRegTimesCircle } from "react-icons/fa";
 
 const MyReviewCards = ({ singleReview }) => {
-  const { serviceName, userProfile, serviceTitle } = singleReview;
+  const { serviceName, userProfile, serviceTitle, describe } = singleReview;
   return (
     <div>
       <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
@@ -36,12 +38,16 @@ const MyReviewCards = ({ singleReview }) => {
               {serviceTitle}
             </h1>
           </aside>
-          <p className="py-2">
-            Donec eget ultricies diam, eu molestie arcu. Etiam nec lacus eu
-            mauris cursus venenatis. Maecenas gravida urna vitae accumsan
-            feugiat. Vestibulum commodo, ante sit urna purus rutrum sem.
-          </p>
+          <p className="py-2">{describe}</p>
         </div>
+        <aside className="flex items-center space-x-5 py-3 px-4">
+          <Link>
+            <FaEdit />
+          </Link>
+          <Link>
+            <FaRegTimesCircle />
+          </Link>
+        </aside>
       </div>
     </div>
   );

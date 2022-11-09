@@ -18,10 +18,10 @@ const ServiceDetails = () => {
 
   const handleAddReview = (event) => {
     event.preventDefault();
-    const form = event.target;
     const name = user?.displayName || "Not Register";
     const photo = user?.photoURL || "Not Register";
     const email = user?.email || "Unregister";
+    const review = event.target.describe.value;
 
     const profile = {
       serviceId: _id,
@@ -30,6 +30,7 @@ const ServiceDetails = () => {
       serviceTitle: title,
       userProfile: photo,
       email: email,
+      describe: review,
     };
 
     fetch("http://localhost:5000/review", {
@@ -73,7 +74,7 @@ const ServiceDetails = () => {
                       {title}
                     </h2>
 
-                    <div className="space-y-3">
+                    <div className="space-y-3 mt-5">
                       <div className="flex justify-between">
                         <p className="text-black">
                           Duration :{" "}
@@ -130,27 +131,65 @@ const ServiceDetails = () => {
               </Link>{" "}
             </h1>
           )}
-          <div className="flex items-center space-x-5 justify-center">
-            {review.length === 0 && user?.displayName && (
-              <h1 className="text-center text-3xl">No reviews were added</h1>
-            )}
-            <Link
-              onClick={handleAddReview}
-              to="/reviewAdd"
-              className="group relative inline-block overflow-hidden border border-indigo-600 px-8 py-3 focus:outline-none focus:ring"
-            >
-              <span className="absolute inset-y-0 left-0 w-[2px] bg-indigo-600 transition-all group-hover:w-full group-active:bg-indigo-500"></span>
 
-              <span className="relative text-sm font-medium text-indigo-600 transition-colors group-hover:text-white">
-                Add Review
-              </span>
-            </Link>
-          </div>
-          <div className="p-12 grid grid-cols-3 gap-7">
-            {userReview.map((singleReview, inx) => (
-              <ReviewCard key={inx} singleReview={singleReview}></ReviewCard>
-            ))}
-          </div>
+          {review.length === 0 && user?.displayName && (
+            <div className="flex items-center space-x-5 justify-center">
+              <h1 className="text-center text-3xl">No reviews were added</h1>
+              <Link
+                to="/reviewAdd"
+                className="group relative inline-block overflow-hidden border border-indigo-600 px-8 py-3 focus:outline-none focus:ring"
+              >
+                <span className="absolute inset-y-0 left-0 w-[2px] bg-indigo-600 transition-all group-hover:w-full group-active:bg-indigo-500"></span>
+
+                <span className="relative text-sm font-medium text-indigo-600 transition-colors group-hover:text-white">
+                  Add Review
+                </span>
+              </Link>
+            </div>
+          )}
+          {review.length && user?.displayName && (
+            <div className="flex flex-col justify-center lg:w-1/5 px-8 lg:px-0 mx-auto">
+              <form onSubmit={handleAddReview}>
+                <div className="form-group">
+                  <textarea
+                    className="
+        form-control
+        block
+        w-full
+        px-3
+        py-3
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+      "
+                    rows="3"
+                    placeholder="Service Review Add"
+                    name="describe"
+                  ></textarea>
+                </div>
+                <input
+                  className="bg-blue-500 py-2 rounded-sm px-5 mt-3 text-white"
+                  type="submit"
+                  value="Add Review"
+                />
+              </form>
+            </div>
+          )}
+
+          {user?.displayName && (
+            <div className="lg:p-12 p-3 grid lg:grid-cols-3 gap-7">
+              {userReview.map((singleReview, inx) => (
+                <ReviewCard key={inx} singleReview={singleReview}></ReviewCard>
+              ))}
+            </div>
+          )}
         </aside>
       </section>
     </div>
