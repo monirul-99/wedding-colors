@@ -11,7 +11,7 @@ const ServiceDetails = () => {
   const { img, title, describe, rating, price, duration, _id, members } =
     cardData[0];
   useEffect(() => {
-    fetch(`http://localhost:5000/reviewId?email=${_id}`)
+    fetch(`http://localhost:5000/reviewServiceId?serviceId=${_id}`)
       .then((res) => res.json())
       .then((data) => setUserReview(data));
   }, [_id]);
@@ -146,7 +146,7 @@ const ServiceDetails = () => {
               </span>
             </Link>
           </div>
-          <div className="grid grid-cols-3 gap-7">
+          <div className="p-12 grid grid-cols-3 gap-7">
             {userReview.map((singleReview, inx) => (
               <ReviewCard key={inx} singleReview={singleReview}></ReviewCard>
             ))}
