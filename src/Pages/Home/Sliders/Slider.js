@@ -21,13 +21,15 @@ const Slider = () => {
       </div>
       <div className="relative flex flex-col items-start w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
         <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
-          <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
-            The Wedding
+          <p className="inline-block px-3 py-px mb-4 text-xl font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+            <span className="text-6xl text-secondary -ml-4">T</span>
+            <span className="-ml-2">he</span>{" "}
+            <span className="text-secondary">Wedding</span>
           </p>
-          <h2 className="mb-5 font-sans text-3xl tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+          <h2 className="mb-5 font-Poppins text-3xl tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
             Registry For <br className="hidden md:block" />
             Eco-Friendly {""}
-            <span className="inline-block text-deep-purple-accent-400">
+            <span className="inline-block text-deep-purple-accent-400 lg:mt-4 mt-3">
               Wedding
             </span>
           </h2>
@@ -42,13 +44,13 @@ const Slider = () => {
           <div className="flex items-center space-x-5">
             <Link
               to="/service"
-              className="inline-block rounded bg-indigo-600 px-8 py-3 text-sm font-medium text-white transition hover:rotate-2 hover:scale-110 focus:outline-none focus:ring active:bg-indigo-500"
+              className="inline-block rounded bg-secondary px-8 py-3 text-sm font-medium text-white transition hover:rotate-2 hover:scale-110 focus:outline-none focus:ring active:bg-secondary"
             >
               Service
             </Link>
             <Link
               to="/blogs"
-              className="inline-block rounded border border-current px-8 py-3 text-sm font-medium text-indigo-600 transition hover:rotate-2 hover:scale-110 focus:outline-none focus:ring active:text-indigo-500"
+              className="inline-block rounded border border-current px-8 py-3 text-sm font-medium text-secondary transition hover:rotate-2 hover:scale-110 focus:outline-none focus:ring active:text-secondary"
             >
               Learn More
             </Link>

@@ -9,7 +9,7 @@ const ReviewAdd = () => {
   const handleNewUsers = (event) => {
     event.preventDefault();
 
-    fetch("http://localhost:5000/review", {
+    fetch("https://wedding-webpage-server-site.vercel.app/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

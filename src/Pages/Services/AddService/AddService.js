@@ -9,7 +9,7 @@ const AddService = () => {
   const handleServiceAdd = (event) => {
     event.preventDefault();
 
-    fetch("http://localhost:5000/service", {
+    fetch("https://wedding-webpage-server-site.vercel.app/service", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -35,10 +35,26 @@ const AddService = () => {
     setService(newUser);
   };
   return (
-    <div className="container mx-auto border-t mb-16">
-      <h1 className="py-12 text-5xl font-Vibes text-center tracking-widest text-secondary">
-        Create Your Favorite Service
-      </h1>
+    <div className="container mx-auto border-t mb-16 px-4 lg:px-0 md:px-0">
+      <div>
+        <h1 className="py-12 lg:text-5xl text-3xl font-Vibes text-center tracking-widest text-secondary">
+          Create Your Favorite Service
+        </h1>
+        <div className="flex justify-center space-x-5 -mt-10 lg:-mt-5 mb-10">
+          <aside>
+            <div className="flex items-center">
+              <hr className="lg:w-52 w-28" />
+              <aside className="lg:w-3 w-2 lg:h-3 h-2  bg-secondary rounded-full"></aside>
+            </div>
+          </aside>
+          <aside>
+            <div className="flex items-center">
+              <aside className="lg:w-3 w-2 lg:h-3 h-2 bg-secondary rounded-full"></aside>
+              <hr className="lg:w-52 w-28 " />
+            </div>
+          </aside>
+        </div>
+      </div>
 
       <div className="block p-6 rounded-lg shadow-lg bg-white max-w-md mx-auto mt-4">
         <h1 className="text-center text-xl mb-4 text-black">

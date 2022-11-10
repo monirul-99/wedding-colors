@@ -12,18 +12,15 @@ const ServiceDetails = () => {
 
   const { img, title, describe, rating, price, duration, _id, members } =
     cardData[0];
-  useEffect(() => {
-    fetch(`http://localhost:5000/reviewServiceId?serviceId=${_id}`)
-      .then((res) => res.json())
-      .then((data) => setUserReview(data));
-  }, [_id]);
 
   const handleAddReview = (event) => {
     event.preventDefault();
+    const form = event.target;
     const name = user?.displayName || "Not Register";
     const photo = user?.photoURL || "Not Register";
     const email = user?.email || "Unregister";
-    const review = event.target.describe.value;
+    const review = form.describe.value;
+    form.reset();
 
     const profile = {
       serviceId: _id,
@@ -35,7 +32,7 @@ const ServiceDetails = () => {
       describe: review,
     };
 
-    fetch("http://localhost:5000/review", {
+    fetch("https://wedding-webpage-server-site.vercel.app/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -50,16 +47,23 @@ const ServiceDetails = () => {
         }
       });
   };
+  useEffect(() => {
+    fetch(
+      `https://wedding-webpage-server-site.vercel.app/reviewServiceId?serviceId=${_id}`
+    )
+      .then((res) => res.json())
+      .then((data) => setUserReview(data));
+  }, [_id, userReview]);
 
   return (
     <div>
-      <section className="container mx-auto border-t">
+      <section className="container mx-auto border-t px-4">
         <aside className="">
           <section>
-            <div className="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-screen-2xl py-16 sm:px-6">
               <div className="grid grid-cols-1  lg:grid-cols-2">
                 <div className="relative z-10 lg:py-16 ">
-                  <div className="relative h-64 sm:h-80 lg:h-full">
+                  <div className="relative h-64 sm:h-80 lg:h-full mb-5 lg:mb-0 md:mb-0">
                     <img
                       alt="House"
                       src={img}
@@ -77,8 +81,8 @@ const ServiceDetails = () => {
                     </h2>
 
                     <div className="space-y-3 mt-5">
-                      <div className="flex justify-between">
-                        <p className="text-black">
+                      <div className="flex flex-col lg:justify-between">
+                        <p className="text-black mb-3">
                           Duration :{" "}
                           <span className="bg-info text-white px-2 rounded-sm">
                             {duration}
@@ -91,14 +95,14 @@ const ServiceDetails = () => {
                           </span>
                         </p>
                       </div>
-                      <div className="flex justify-between">
-                        <p className="text-black">
+                      <div className="flex flex-col-reverse  lg:justify-between">
+                        <p className="text-black ">
                           Our Members Provide :{" "}
                           <span className="bg-info text-white px-2 rounded-sm">
                             {members}
                           </span>
                         </p>
-                        <p className="text-black">
+                        <p className="text-black mb-3">
                           Rating :{" "}
                           <span className="bg-info text-white px-2 rounded-sm">
                             {rating}
@@ -124,7 +128,7 @@ const ServiceDetails = () => {
             </div>
           </section>
         </aside>
-        <aside className=" bg-white py-28 mb-16 rounded-lg">
+        <aside className=" bg-white py-28 mb-16 rounded-lg ">
           {!user?.displayName && (
             <h1 className="text-center text-3xl">
               Please login to add a review{" "}

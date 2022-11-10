@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaEdit, FaRegTimesCircle } from "react-icons/fa";
 
-const MyReviewCards = ({ singleReview }) => {
-  const { serviceName, userProfile, serviceTitle, describe } = singleReview;
+const MyReviewCards = ({ singleReview, reviewDelete }) => {
+  const { serviceName, userProfile, serviceTitle, describe, _id } =
+    singleReview;
+
   return (
     <div>
       <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
@@ -32,19 +34,19 @@ const MyReviewCards = ({ singleReview }) => {
           </div>
         </div>
         <div className="p-4 space-y-2 text-sm dark:text-gray-400">
-          <aside className="flex justify-between ">
-            <h1 className="text-xl">Package Name : </h1>
-            <h1 className="text-xl bg-amber-500 px-5 p-1 text-black rounded-sm">
+          <aside className="flex justify-between items-center">
+            <h1 className="text-[17px]">Package Name : </h1>
+            <h1 className="text-[17px] bg-amber-500 px-5 p-1 text-black rounded-sm">
               {serviceTitle}
             </h1>
           </aside>
           <p className="py-2">{describe}</p>
         </div>
         <aside className="flex items-center space-x-5 py-3 px-4">
-          <Link>
+          <Link to={`/review/${_id}`}>
             <FaEdit />
           </Link>
-          <Link>
+          <Link onClick={() => reviewDelete(singleReview)}>
             <FaRegTimesCircle />
           </Link>
         </aside>

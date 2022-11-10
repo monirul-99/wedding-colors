@@ -5,6 +5,7 @@ import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import Review from "../../Pages/Review/Review";
+import ReviewUpdate from "../../Pages/Review/ReviewUpdate/ReviewUpdate";
 import AddService from "../../Pages/Services/AddService/AddService";
 import Service from "../../Pages/Services/Service";
 import ReviewAdd from "../../Pages/Services/ServiceDetails/ReviewAdd/ReviewAdd";
@@ -28,14 +29,25 @@ export const Routers = createBrowserRouter([
       },
       {
         path: "/service",
-        loader: () => fetch("http://localhost:5000/service"),
+        loader: () =>
+          fetch("https://wedding-webpage-server-site.vercel.app/service"),
         element: <Service />,
       },
       {
         path: "/service/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/service/${params.id}`),
+          fetch(
+            `https://wedding-webpage-server-site.vercel.app/service/${params.id}`
+          ),
         element: <ServiceDetails />,
+      },
+      {
+        path: "/review/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://wedding-webpage-server-site.vercel.app/review/${params.id}`
+          ),
+        element: <ReviewUpdate />,
       },
       {
         path: "/addService",
@@ -64,3 +76,5 @@ export const Routers = createBrowserRouter([
     ],
   },
 ]);
+
+// https://wedding-webpage-server-site.vercel.app

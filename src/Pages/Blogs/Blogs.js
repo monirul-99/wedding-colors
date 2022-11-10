@@ -5,9 +5,29 @@ const Blogs = () => {
   UseTitle("Blogs");
   return (
     <div>
-      <div className="space-y-4 container mx-auto border-t py-12">
+      <div className="space-y-4 container mx-auto border-t py-8 px-8">
+        <div className="py-12">
+          <h1 className="text-center lg:text-4xl text-2xl font-Vibes tracking-widest text-white">
+            Special Question With <span className="text-secondary">Answer</span>
+          </h1>
+
+          <div className="flex justify-center space-x-5 mt-3">
+            <aside>
+              <div className="flex items-center">
+                <hr className="w-32" />
+                <aside className="w-3 h-3 bg-secondary rounded-full"></aside>
+              </div>
+            </aside>
+            <aside>
+              <div className="flex items-center">
+                <aside className="w-3 h-3 bg-secondary rounded-full"></aside>
+                <hr className="w-32" />
+              </div>
+            </aside>
+          </div>
+        </div>
         <details
-          className="group border-l-4 border-green-500 bg-gray-50 p-6"
+          className="group border-l-4 border-secondary bg-gray-50 p-6 "
           open
         >
           <summary className="flex cursor-pointer items-center justify-between">
@@ -39,7 +59,7 @@ const Blogs = () => {
           </p>
         </details>
 
-        <details className="group border-l-4 border-green-500 bg-gray-50 p-6">
+        <details className="group border-l-4 border-secondary bg-gray-50 p-6">
           <summary className="flex cursor-pointer items-center justify-between">
             <h2 className="text-lg font-medium text-gray-900">
               What is JWT, and how does it work?
@@ -76,7 +96,7 @@ const Blogs = () => {
           </p>
         </details>
 
-        <details className="group border-l-4 border-green-500 bg-gray-50 p-6">
+        <details className="group border-l-4 border-secondary bg-gray-50 p-6">
           <summary className="flex cursor-pointer items-center justify-between">
             <h2 className="text-lg font-medium text-gray-900">
               What is the difference between javascript and NodeJS?
@@ -106,7 +126,7 @@ const Blogs = () => {
           </p>
         </details>
 
-        <details className="group border-l-4 border-green-500 bg-gray-50 p-6">
+        <details className="group border-l-4 border-secondary bg-gray-50 p-6">
           <summary className="flex cursor-pointer items-center justify-between">
             <h2 className="text-lg font-medium text-gray-900">
               How does NodeJS handle multiple requests at the same time?

@@ -17,7 +17,7 @@ const ServiceContext = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/review`)
+    fetch(`https://wedding-webpage-server-site.vercel.app/review`)
       .then((res) => res.json())
       .then((data) => setReview(data));
   }, []);
