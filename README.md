@@ -3,7 +3,7 @@
 ## Projects Name
 
 - Wedding Colors
-- Live View :
+- Live View : https://wedding-photography-1adeb.web.app/
 
 ## Library Of JavaScript
 
