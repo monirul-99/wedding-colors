@@ -1,5 +1,5 @@
 import { GoogleAuthProvider } from "firebase/auth";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/ServiceContext";
@@ -8,7 +8,6 @@ import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   UseTitle("Login");
-  const [error, setError] = useState();
   const { signInBtn, handleGoogleProvider } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -20,6 +19,25 @@ const Login = () => {
     handleGoogleProvider(google)
       .then((result) => {
         const user = result.user;
+        const currentUser = {
+          email: user.email,
+        };
+
+        console.log(currentUser);
+
+        // JWT Token Get
+        fetch(`https://wedding-webpage-server-site.vercel.app/jwt`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data.token);
+            localStorage.setItem("my-token", data.token);
+          });
         console.log(user);
       })
       .catch((error) => {
@@ -67,7 +85,6 @@ const Login = () => {
         });
       })
       .catch((error) => {
-        setError(error.message);
         console.error("error", error);
       });
   };
