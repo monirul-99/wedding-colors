@@ -30,30 +30,53 @@ const PhotoGallery = () => {
       </p>
       <div className="container grid grid-cols-2 gap-4 mx-auto md:grid-cols-4 lg:w-full w-5/6">
         <img
+          data-aos-duration="1500"
+          data-aos="fade-up"
           src={imgBig}
           alt=""
           className="w-full h-full col-span-2 row-span-2 rounded shadow-sm min-h-96 md:col-start-3 md:row-start-1 dark:bg-gray-500 aspect-square"
         />
         <img
+          data-aos-duration="1500"
+          data-aos="zoom-out-right"
           alt=""
           className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square"
           src={imgThree}
         />
+
+        <div
+          data-aos="fade-up"
+          data-aos-anchor-placement="top-center"
+          data-aos-duration="1500"
+        >
+          <img
+            data-aos="fade-up-left"
+            alt=""
+            className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square"
+            src={imgTwo}
+          />
+        </div>
+
         <img
-          alt=""
-          className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square"
-          src={imgTwo}
-        />
-        <img
+          data-aos-duration="1500"
+          data-aos="zoom-out-right"
           alt=""
           className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square"
           src={imgOne}
         />
-        <img
-          alt=""
-          className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square"
-          src={imgFour}
-        />
+
+        <div
+          data-aos="fade-up"
+          data-aos-anchor-placement="bottom-bottom"
+          data-aos-duration="1500"
+        >
+          <img
+            data-aos="fade-up-left"
+            alt=""
+            className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square"
+            src={imgFour}
+          />
+        </div>
       </div>
     </section>
   );

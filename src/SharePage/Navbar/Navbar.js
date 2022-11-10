@@ -126,21 +126,21 @@ const Navbar = () => {
           <ul className="flex flex-col mt-4 rounded-lg border border-gray-100 md:flex-row space-x-8 md:mt-0 md:text-sm  md:font-medium md:border-0  ">
             <Link
               to="/home"
-              className="relative text-[17px] text-white before:absolute before:-bottom-2 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-blue-700 before:transition hover:before:scale-100"
+              className="relative text-[17px] text-white before:absolute before:-bottom-2 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-secondary before:transition hover:before:scale-100"
             >
               Home
             </Link>
 
             <Link
               to="/service"
-              className="relative text-[17px] text-white before:absolute before:-bottom-2 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-blue-700 before:transition hover:before:scale-100"
+              className="relative text-[17px] text-white before:absolute before:-bottom-2 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-secondary before:transition hover:before:scale-100"
             >
               Service
             </Link>
 
             <Link
               to="/blogs"
-              className="relative text-[17px] text-white before:absolute before:-bottom-2 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-blue-700 before:transition hover:before:scale-100"
+              className="relative text-[17px] text-white before:absolute before:-bottom-2 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-secondary before:transition hover:before:scale-100"
             >
               Blogs
             </Link>
@@ -149,19 +149,19 @@ const Navbar = () => {
               <>
                 <Link
                   to="/addService"
-                  className="relative text-[17px] text-white before:absolute before:-bottom-2 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-blue-700 before:transition hover:before:scale-100"
+                  className="relative text-[17px] text-white before:absolute before:-bottom-2 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-secondary before:transition hover:before:scale-100"
                 >
                   Add Service
                 </Link>
                 <Link
                   to="/review"
-                  className="relative text-[17px] text-white before:absolute before:-bottom-2 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-blue-700 before:transition hover:before:scale-100"
+                  className="relative text-[17px] text-white before:absolute before:-bottom-2 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-secondary before:transition hover:before:scale-100"
                 >
                   My Review
                 </Link>
                 <Link
                   onClick={handleLogOuts}
-                  className="relative text-[17px] text-white before:absolute before:-bottom-2 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-blue-700 before:transition hover:before:scale-100"
+                  className="relative text-[17px] text-white before:absolute before:-bottom-2 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-secondary before:transition hover:before:scale-100"
                 >
                   Log Out
                 </Link>
@@ -171,14 +171,14 @@ const Navbar = () => {
               <>
                 <Link
                   to="/login"
-                  className="relative text-[17px] text-white before:absolute before:-bottom-2 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-blue-700 before:transition hover:before:scale-100"
+                  className="relative text-[17px] text-white before:absolute before:-bottom-2 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-secondary before:transition hover:before:scale-100"
                 >
                   Log In
                 </Link>
 
                 <Link
                   to="/register"
-                  className="relative text-[17px] text-white before:absolute before:-bottom-2 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-blue-700 before:transition hover:before:scale-100"
+                  className="relative text-[17px] text-white before:absolute before:-bottom-2 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-secondary before:transition hover:before:scale-100"
                 >
                   Register
                 </Link>

@@ -6,10 +6,13 @@ const Cards = ({ card }) => {
   const { img, title, price, rating, describe, _id } = card;
   return (
     <div>
-      <div className="relative flex justify-center">
+      <div
+        className="relative flex justify-center"
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+      >
         <div className="rounded-lg shadow-lg bg-white max-w-sm">
           <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
-            {/* <img className=" rounded-t-lg" src={img} alt="" /> */}
             <PhotoProvider>
               <PhotoView src={img}>
                 <img src={img} alt="" />

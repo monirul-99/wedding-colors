@@ -10,6 +10,7 @@ import AddService from "../../Pages/Services/AddService/AddService";
 import Service from "../../Pages/Services/Service";
 import ReviewAdd from "../../Pages/Services/ServiceDetails/ReviewAdd/ReviewAdd";
 import ServiceDetails from "../../Pages/Services/ServiceDetails/ServiceDetails";
+import PrivateRoute from "../PrivateRoutes/PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -67,7 +68,11 @@ export const Routers = createBrowserRouter([
       },
       {
         path: "/review",
-        element: <Review />,
+        element: (
+          <PrivateRoute>
+            <Review />
+          </PrivateRoute>
+        ),
       },
       {
         path: "reviewAdd",
@@ -76,5 +81,3 @@ export const Routers = createBrowserRouter([
     ],
   },
 ]);
-
-// https://wedding-webpage-server-site.vercel.app

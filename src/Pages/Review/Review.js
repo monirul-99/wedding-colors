@@ -1,4 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/ServiceContext";
 import UseTitle from "../../CustomHooks/UseTitle/UseTitle";
 import MyReviewCards from "./MyReviewCards/MyReviewCards";
@@ -6,12 +8,33 @@ import MyReviewCards from "./MyReviewCards/MyReviewCards";
 const Review = () => {
   UseTitle("My Review");
   const [review, setReview] = useState([]);
-  const { user } = useContext(AuthContext);
+  console.log("Review", review);
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogOuts = () => {
+    logOut()
+      .then(() => {
+        navigate("/login");
+      })
+      .then((error) => console.error(error));
+  };
+
   useEffect(() => {
     fetch(
-      `https://wedding-webpage-server-site.vercel.app/reviewEmail?email=${user?.email}`
+      `https://wedding-webpage-server-site.vercel.app/reviewEmail?email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("my-token")}`,
+        },
+      }
     )
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          handleLogOuts();
+        }
+        return res.json();
+      })
       .then((data) => setReview(data));
   }, [user?.email, review]);
 
@@ -32,6 +55,14 @@ const Review = () => {
             const remainingUsers = review.filter(
               (item) => item._id !== review._id
             );
+            Swal.fire({
+              icon: "success",
+              title: "Delete Success!",
+              showConfirmButton: false,
+              background: "#000000",
+              color: "ffffff",
+              timer: 1500,
+            });
             setReview(remainingUsers);
           }
         });
@@ -58,8 +89,13 @@ const Review = () => {
         </aside>
       </div>
 
+      {!review.length && (
+        <div className="flex justify-center mt-12">
+          <h1 className="text-3xl">No reviews were added</h1>
+        </div>
+      )}
       <div className="grid lg:grid-cols-3 gap-12 mt-12 px-4">
-        {review.map((singleReview, inx) => (
+        {review?.map((singleReview, inx) => (
           <MyReviewCards
             key={inx}
             reviewDelete={reviewDelete}

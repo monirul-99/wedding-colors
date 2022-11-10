@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 import UseTitle from "../../../CustomHooks/UseTitle/UseTitle";
 
 const AddService = () => {
@@ -19,9 +20,13 @@ const AddService = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          toast.success("Service Added Successfully!", {
-            position: "top-right",
-            autoClose: 500,
+          Swal.fire({
+            icon: "success",
+            title: "Service Added Success!",
+            showConfirmButton: false,
+            background: "#000000",
+            color: "ffffff",
+            timer: 1500,
           });
           event.target.reset();
         }
@@ -60,7 +65,7 @@ const AddService = () => {
         <h1 className="text-center text-xl mb-4 text-black">
           Service Info Provider Form
         </h1>
-        <form>
+        <form onSubmit={handleServiceAdd}>
           <div className="form-group mb-6">
             <input
               type="text"

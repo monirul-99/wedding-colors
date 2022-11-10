@@ -30,7 +30,11 @@ const Pricing = () => {
             </span>
           </div>
           <div className="flex flex-wrap items-stretch justify-center">
-            <div className="lg:flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/4 lg:mb-0">
+            <div
+              className="lg:flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/4 lg:mb-0"
+              data-aos="fade-down-right"
+              data-aos-duration="1500"
+            >
               <div className="p-6 space-y-6 rounded shadow sm:p-8  bg-gray-900">
                 <div className="space-y-2">
                   <h4 className="text-2xl mb-3">
@@ -129,7 +133,11 @@ const Pricing = () => {
               </div>
             </div>
 
-            <div className="lg:flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/4 lg:mb-0">
+            <div
+              className="lg:flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/4 lg:mb-0"
+              data-aos="fade-up"
+              data-aos-duration="1500"
+            >
               <div className="flex flex-col p-6 space-y-6 rounded shadow sm:p-8  bg-lime-50  text-gray-900">
                 <div className="space-y-2">
                   <h4 className="text-2xl font-semibold mb-3">
@@ -229,7 +237,11 @@ const Pricing = () => {
               </div>
             </div>
 
-            <div className="lg:flex flex-col w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/4 lg:mb-0">
+            <div
+              className="lg:flex flex-col w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/4 lg:mb-0"
+              data-aos="zoom-in"
+              data-aos-duration="1500"
+            >
               <div className="p-6 space-y-6 rounded shadow sm:p-8  bg-gray-900">
                 <div className="space-y-2">
                   <h4 className="text-2xl mb-3">

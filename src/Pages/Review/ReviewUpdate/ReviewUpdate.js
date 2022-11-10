@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ReviewUpdate = () => {
   const data = useLoaderData();
   const [update, setUpdate] = useState(data);
-
-  console.log(data);
-  console.log(data[0]._id);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -21,7 +19,18 @@ const ReviewUpdate = () => {
       }
     )
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        if (data.acknowledged) {
+          Swal.fire({
+            icon: "success",
+            title: "Update Success!",
+            showConfirmButton: false,
+            background: "#000000",
+            color: "ffffff",
+            timer: 1500,
+          });
+        }
+      });
   };
 
   const handleOnChange = (event) => {
@@ -31,6 +40,7 @@ const ReviewUpdate = () => {
     newDescriber[fieldName] = fieldValue;
     setUpdate(newDescriber);
   };
+
   return (
     <div className="container mx-auto border-t">
       <div className="block p-6 rounded-lg shadow-lg bg-white max-w-md mx-auto mt-28 mb-24">

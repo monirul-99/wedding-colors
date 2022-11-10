@@ -13,6 +13,10 @@
 
 - Photography Category
 
+## Authentication Partner
+
+- Firebase
+
 ## Projects To Features
 
 - Some Special Card For Wedding Photography

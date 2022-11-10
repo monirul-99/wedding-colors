@@ -63,6 +63,7 @@ const ServiceContext = ({ children }) => {
     review,
     loading,
     setReview,
+    setLoading,
   };
   return (
     <div>

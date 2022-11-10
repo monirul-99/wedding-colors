@@ -25,7 +25,7 @@ const Service = () => {
           </div>
         </aside>
       </div>
-      <h3 className="w-5/6 mx-auto mr-32 px-2 -mb-5">
+      <h3 className="w-5/6 mx-auto mr-32 px-2 text-white -mb-5">
         Total Package : {allServiceData.length}
       </h3>
       <div className="grid lg:grid-cols-3 gap-12 w-5/6 mx-auto py-12">
